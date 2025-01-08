@@ -1,0 +1,72 @@
+{% extends 'based.html'%}
+
+{% block body %}
+
+<div id="field_main">
+
+<h1>Я ТЕБЯ УЗНАЛ</h1>
+
+Твое имя:   <b>{{name}}</b> 
+
+Твоя фамилия: <b>{{surname}}</b>
+
+Твой ID в базе: <b>{{user_id}}</b><br>
+
+<div class="pa_buttons">
+
+<a href="/logout">Выйти</a>
+
+&nbsp;
+
+<a href="{{ url_for('pa', id=user_id, action = 'delete') }}">Удалить аккаунт</a>
+
+&nbsp;
+
+<a href="{{ url_for('pa', id=user_id, action = 'change') }}">Редактировать профиль</a><br>
+
+</div>
+
+{% if dl %}
+
+
+<b>Вы уверены что хотите удалить аккаунт?</b> <br>
+
+<div class="change_but">
+
+<a href='{{ url_for("pa", id = user_id, verif = "True") }}'>Да</a>
+
+&nbsp;
+
+<a href='{{ url_for("pa", id = user_id, verif = "False") }}'>Отмена</a>
+
+</div>
+
+
+{% endif %}
+
+{% if ch %}
+
+<form action="" method="POST" class = "reg_style" >
+    <div class="reg_style">
+        <label for="username">Введите новое имя: </label><br>
+        <input type = "text" name = "username" id="username" maxlength="50" required>
+    </div><br>
+    <div class="reg_style">
+        <label for="surname">Введите новую фамилию: </label><br>
+        <input type = "text" name = "surname" id="surname" maxlength="50" required>
+    </div><br>
+    <div class="reg_style">
+        <input type="submit" value="Регистрация" id="reg_button">
+    </div>
+    
+</form>
+
+<form action="/pa" method="GET" class="reg_style">
+    <button type="submit" name="exit">Отмена</button>
+</form>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+body {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+
+#field, #field_main {
+    padding: 25px;
+    border: 3px solid black;
+    
+}
+
+
+#field_main {
+    margin: center;
+    text-align: center;
+}
+
+.pa_buttons, .change_but{
+    padding: 10px;
+}
