@@ -8,11 +8,23 @@
     <div class = "login_style">
         <label for="email">Введите email:  </label><br>
         <input type="email" name="email" id="email"  maxlength="50" required> 
+
+        {%if valid_email == False%}
+
+        <div class = "warning">
+            Введен некорректный email<br>
+            <div class = "post_warning">
+                Email должен содержать символ "@" и домен (gmail.com, email.com, proton.me и т.д.)
+            </div>
+        </div>
+
+        {%endif%}
+
     </div>
     
     <div class = "login_style">
         <label for = "password">Введите пароль: </label><br>
-        <input type = "password" name = "password" id = "password" maxlength="50" required>
+        <input type = "password" name = "password" id = "password" maxlength="50" required><br>
     </div>
     
     <div class = "login_style">

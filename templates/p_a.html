@@ -18,11 +18,11 @@
 
 &nbsp;
 
-<a href="{{ url_for('pa', id=user_id, action = 'delete') }}">Удалить аккаунт</a>
+<a href="{{ url_for('pa.pa', id=user_id, action = 'delete') }}">Удалить аккаунт</a>
 
 &nbsp;
 
-<a href="{{ url_for('pa', id=user_id, action = 'change') }}">Редактировать профиль</a><br>
+<a href="{{ url_for('pa.pa', id=user_id, action = 'change') }}">Редактировать профиль</a><br>
 
 </div>
 
@@ -33,11 +33,11 @@
 
 <div class="change_but">
 
-<a href='{{ url_for("pa", id = user_id, verif = "True") }}'>Да</a>
+<a href='{{ url_for("pa.pa", id = user_id, verif = "True") }}'>Да</a>
 
 &nbsp;
 
-<a href='{{ url_for("pa", id = user_id, verif = "False") }}'>Отмена</a>
+<a href='{{ url_for("pa.pa", id = user_id, verif = False) }}'>Отмена</a>
 
 </div>
 
@@ -48,13 +48,41 @@
 
 <form action="" method="POST" class = "reg_style" >
     <div class="reg_style">
+
         <label for="username">Введите новое имя: </label><br>
         <input type = "text" name = "username" id="username" maxlength="50" required>
+
+            {%if valid_name == False%}
+            
+                <div class = "warning">
+                    Введено некорректное имя<br>
+                    <div class = "post_warning">
+                        Имя не должно превышать 49 символов, запрещено использование: %, /, # и т.д.
+                    </div>
+                </div>
+
+            {%endif%}
+
     </div><br>
+
     <div class="reg_style">
+
         <label for="surname">Введите новую фамилию: </label><br>
         <input type = "text" name = "surname" id="surname" maxlength="50" required>
+
+            {%if valid_surname == False%}
+
+            <div class = "warning">
+                Введено некорректная фамилия<br>
+                <div class = "post_warning">
+                    Фамилия не должна превышать 49 символов, запрещено использование: %, /, # и т.д.
+                </div>
+            </div>
+
+            {%endif%}
+
     </div><br>
+
     <div class="reg_style">
         <input type="submit" value="Принять" id="reg_button">
     </div>

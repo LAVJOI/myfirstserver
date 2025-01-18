@@ -23,3 +23,20 @@ body {
 .pa_buttons, .change_but{
     padding: 10px;
 }
+
+
+.warning {
+    font-size: small;
+}
+
+.post_warning {
+    font-size: smaller;
+}
+
+.reg_style {
+    padding-bottom: 10px;
+}
+
+.title {
+    text-align: center;
+}

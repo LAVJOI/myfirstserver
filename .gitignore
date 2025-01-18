@@ -1,1 +1,7 @@
-db_tst.py
+.env 
+/__pycache__
+.log
+.dockerignore
+Dockerfile
+.yaml
+.md
