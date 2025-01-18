@@ -1,0 +1,108 @@
+{% extends 'based.html'%}
+
+{% block body%}
+
+<div id="field">
+
+     <div class = "title">
+        <h1> Регистрация </h1>
+    </div>
+
+<form action="" method="POST" class = "reg_style" >
+    <div class="reg_style">
+        <label for="username">Введите имя: </label><br>
+        <input type = "text" name = "username" id="username" maxlength="50" required>
+
+        {%if valid_name == False%}
+            
+            <div class = "warning">
+                Введено некорректное имя<br>
+                <div class = "post_warning">
+                    Имя не должно превышать 49 символов, запрещено использование: %, /, # и т.д.
+                </div>
+            </div>
+
+        {%endif%}
+
+    </div>
+
+    <div class="reg_style">
+
+        <label for="surname">Введите фамилию: </label><br>
+        <input type = "text" name = "surname" id="surname" maxlength="50" required>
+
+        {%if valid_surname == False%}
+
+        <div class = "warning">
+            Введено некорректная фамилия<br>
+            <div class = "post_warning">
+                Фамилия не должна превышать 49 символов, запрещено использование: %, /, # и т.д.
+            </div>
+        </div>
+
+        {%endif%}
+        
+
+    </div> 
+
+    <div class="reg_style">
+
+        <label for="email">Введите email: </label><br>
+        <input type="email" name="email" id="name" maxlength="50" required>
+
+        {%if valid_email == False%}
+
+        <div class = "warning">
+            Введен некорректный email<br>
+            <div class = "post_warning">
+                Email должен содержать символ "@" и домен (gmail.com, email.com, proton.me и т.д.)
+            </div>
+        </div>
+
+            
+
+        {%endif%}
+
+
+    </div>
+
+    <div class="reg_style">
+        <label for="password">Придумайте пароль: </label><br>
+        <input type="password" name="password" id="password" maxlength="50" required>
+
+        {%if valid_password == False%}
+            
+        <div class = "warning">
+            Введен некорректный пароль<br>
+            <div class = "post_warning">
+                Пароль не должен быть меньше 6 и больше 16 символов
+            </div>
+        </div>
+
+        {%endif%}
+
+    </div>
+
+    <div class="reg_style">
+
+        <input type="submit" value="Регистрация" id="reg_button">
+
+    </div>
+
+
+</form>
+
+<form action="/login" method="GET" class = "logb_style">
+    <div class="logb_style">
+        <button name="Login">Уже зарегестрированы?</button>
+    </div>
+</form>
+
+
+<form action="/" method="GET" class="main">
+    <div class="main">
+        <button name="main">На главную</button>
+    </div>
+</form>
+</div>
+{% endblock %}
