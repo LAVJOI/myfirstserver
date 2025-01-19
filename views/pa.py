@@ -39,7 +39,7 @@ class Pa(View):
                 if response_data is not None:
                     return redirect(url_for('pa.pa', id = response_data["user_data"]["id"]))
                 else:
-                    return("Вы не авторизованы или пытаетесь получить доступ не к своему аккаунту")
+                    return redirect(url_for('login.login'))
                 
             url_id = request.args.get('id')
             url_id = int(url_id)
